@@ -15,10 +15,10 @@ class Bank(object):
             return False
 
     def withdrawMoney(self, amountToTake):
-        if(self.amountToTake > self.balanceLeft):
+        if(amountToTake > self.balanceLeft):
             print("Oh no! It seems you have tried to withdraw more money than is left!")
         else:
-            return self.balanceLeft - self.amountToTake
+            return self.balanceLeft - amountToTake
 
 
 def main():
@@ -26,15 +26,14 @@ def main():
     # pinNumber = int(19384)
 
     card = int(input("Write your card number here! : "))
-    pin = int(input("Write your pin number here! : ")
+    pin = int(input("Write your pin number here! : "))
 
+    amountRemaining = 110398
 
-    amountRemaining=110398
-
-    testPerson=Bank(card, pin, amountRemaining)
+    testPerson = Bank(card, pin, amountRemaining)
 
     if(testPerson.verifyPerson() == True):
-        withdraw=int(input("How much do you want to take? :"))
+        withdraw = int(input("How much do you want to take? :"))
         print("You have" + " " + str(testPerson.withdrawMoney(withdraw)) +
               " " + "left in your account")
     else:
